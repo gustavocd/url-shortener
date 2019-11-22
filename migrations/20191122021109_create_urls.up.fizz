@@ -1,0 +1,10 @@
+create_table("urls") {
+	t.Column("id", "integer", {primary: true})
+	t.Column("url_code", "string")
+	t.Column("long_url", "string")
+	t.Column("short_url", "string")
+	t.Column("created_at", "timestamp", {"default": "now()"})
+	t.Column("updated_at", "timestamp", {"null": true})
+}
+
+add_index("urls", "long_url", {"unique": true})
